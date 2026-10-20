@@ -1,0 +1,30 @@
+# ---------- 依赖 ----------
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# ---------- 构建产物 / 缓存 ----------
+dist/
+*.local
+.eslintcache
+
+# ---------- 环境变量 ----------
+# backend/.env 里有数据库密码、JWT 密钥和 LLM API Key，绝对不能提交
+backend/.env
+.env.local
+*.env.local
+
+# ---------- 运行时数据 ----------
+# 向量库是 RAG 建索引时生成的，删掉后可以重新生成；data/kb 里的原始文档要保留
+backend/data/chroma/
+backend/uploads/
+backend/*.db
+backend/*.sqlite3
+
+# ---------- 编辑器 / 系统 ----------
+.idea/
+.DS_Store
+Thumbs.db
+*.log
