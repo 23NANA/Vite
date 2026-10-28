@@ -1,0 +1,349 @@
+{
+  "dataset": "D:\\PythonProject\\Course\\backend\\evals\\agent_cases.json",
+  "eval_database": "mysql+pymysql://root:***@127.0.0.1:3306/lab_agent_eval",
+  "cases": 11,
+  "passed": 10,
+  "pass_rate": 0.9090909090909091,
+  "tool_accuracy": 1.0,
+  "answer_pass_rate": 0.9090909090909091,
+  "db_pass_rate": 1.0,
+  "judge_average": {
+    "relevance": 5.0,
+    "accuracy": 4.7272727272727275,
+    "completeness": 4.818181818181818,
+    "helpfulness": 5.0
+  },
+  "results": [
+    {
+      "id": "open-hours",
+      "turns": [
+        "计算机实验室周末几点开门？"
+      ],
+      "answer": "计算机实验室周末开放时间为 **09:00-17:00**；开放时间内仍需先预约并通过审核才能使用。",
+      "tool_calls": [
+        "search_lab_docs"
+      ],
+      "errors": [],
+      "expected_tools": [
+        "search_lab_docs"
+      ],
+      "expected_any_tools": [],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "回复准确给出周末开放时间09:00-17:00，与参考要点一致，并补充预约审核要求，信息清晰可执行。"
+      }
+    },
+    {
+      "id": "chem-weekend",
+      "turns": [
+        "化学实验室周末开放吗？"
+      ],
+      "answer": "化学实验室周末**不开放**。\n\n- 化学实验室：周一至周五 08:30–18:00，周末不开放\n- 开放时间内也需先预约并通过审核后才能进入\n- 进入化学实验室须穿实验服并戴护目镜，且不得携带零食\n\n需要我帮你预约工作日时段吗？",
+      "tool_calls": [
+        "search_lab_docs"
+      ],
+      "errors": [],
+      "expected_tools": [
+        "search_lab_docs"
+      ],
+      "expected_any_tools": [],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "直接明确回答周末不开放，与参考要点一致，并补充开放时间、预约及安全要求等有用信息，还主动提出帮忙预约。"
+      }
+    },
+    {
+      "id": "safety-goggles",
+      "turns": [
+        "进化学实验室需要戴护目镜吗？"
+      ],
+      "answer": "需要。按安全规范：**进入实验室须穿实验服，化学实验室必须戴护目镜**，所以进化学实验室要戴护目镜。另外提醒：化学实验室禁止带零食，设备损坏请立即停用并联系管理员。",
+      "tool_calls": [
+        "search_lab_docs"
+      ],
+      "errors": [],
+      "expected_tools": [
+        "search_lab_docs"
+      ],
+      "expected_any_tools": [],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 4,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "核心回答与参考要点一致且清晰可执行，但补充的零食和設備損壞提醒未在参考要点中体现，严格看有轻微额外发挥。"
+      }
+    },
+    {
+      "id": "booking-rules",
+      "turns": [
+        "待审核的预约可以取消吗？"
+      ],
+      "answer": "可以取消。\n\n根据《预约规则》，待审核和已通过的预约，本人可以取消；已拒绝的不能取消。\n\n需要我帮您查一下自己的预约并取消某一笔吗？",
+      "tool_calls": [
+        "search_lab_docs"
+      ],
+      "errors": [],
+      "expected_tools": [
+        "search_lab_docs"
+      ],
+      "expected_any_tools": [],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "回答直接且准确地区分了待审核、已通过和已拒绝预约的取消规则，与参考要点完全一致，并提供了可执行的下一步。"
+      }
+    },
+    {
+      "id": "equipment-usage",
+      "turns": [
+        "电子显微镜使用前要检查什么？"
+      ],
+      "answer": "电子显微镜使用前，需要先检查**镜头**和**样品台**；使用结束后，要填写使用登记。\n\n另外请注意：\n- 预约设备时必须同时选定设备所属的实验室\n- 设备与实验室绑定，约了设备时段内实验室也算占用\n- 若发现设备损坏，应立即停用并联系管理员，不要自行拆修",
+      "tool_calls": [
+        "search_lab_docs"
+      ],
+      "errors": [],
+      "expected_tools": [
+        "search_lab_docs"
+      ],
+      "expected_any_tools": [],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 4,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "核心回答与参考要点一致，说明先检查镜头和样品台、结束后填登记；额外补充的预约与报修提示有用但不在参考要点中，无法核实，故准确度略降。"
+      }
+    },
+    {
+      "id": "list-open-labs",
+      "turns": [
+        "现在有哪些实验室开放？"
+      ],
+      "answer": "目前有 4 个实验室开放：\n\n| ID | 名称 | 位置 | 容量 | 开放时间 |\n|---|---|---|---|---|\n| 1 | 云计算实验室 | 实验楼A301 | 40人 | 08:00–21:00 |\n| 2 | 化学实验室 | 实验楼B102 | 30人 | 08:30–18:00 |\n| 3 | 物理实验室 | 实验楼C201 | 25人 | 08:00–20:00 |\n| 4 | 计算机实验室 | 实验楼A101 | 50人 | 08:00–21:00 |\n\n需要我帮你查看某个实验室的设备，或者直接帮你预约吗？",
+      "tool_calls": [
+        "list_open_labs"
+      ],
+      "errors": [],
+      "expected_tools": [
+        "list_open_labs"
+      ],
+      "expected_any_tools": [],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "回复直接列出了4个开放实验室的详细信息，格式清晰，并主动提供设备查询与预约的后续操作建议。"
+      }
+    },
+    {
+      "id": "list-equipment",
+      "turns": [
+        "云计算实验室有哪些设备？"
+      ],
+      "answer": "云计算实验室（ID 1，实验楼A301，容量 40 人，开放时间 08:00–21:00）目前有以下设备：\n\n| 设备ID | 设备名称 | 规格 | 数量 | 状态 |\n|---|---|---|---|---|\n| 1 | GPU服务器 | 8 x A100 | 2 | 可用 |\n\n需要我帮你预约实验室或 GPU 服务器吗？",
+      "tool_calls": [
+        "list_open_labs",
+        "list_lab_equipments"
+      ],
+      "errors": [],
+      "expected_tools": [
+        "list_lab_equipments"
+      ],
+      "expected_any_tools": [
+        "list_open_labs"
+      ],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "回复准确列出云计算实验室的 GPU 服务器设备及详细规格状态，与参考要点一致，并主动提供预约等可执行下一步。"
+      }
+    },
+    {
+      "id": "book-confirm",
+      "turns": [
+        "帮我预约明天上午 9 点到 10 点的云计算实验室",
+        "确认预约"
+      ],
+      "answer": "预约已提交 ✅\n\n- 实验室：云计算实验室（ID 1，实验楼A301）\n- 日期：2026-10-28\n- 时间：09:00 - 10:00\n\n当前状态：**待审核**。管理员审核通过后，实验室才能使用。",
+      "tool_calls": [
+        "list_open_labs",
+        "get_today",
+        "list_open_labs",
+        "get_today",
+        "create_lab_reservation"
+      ],
+      "errors": [],
+      "expected_tools": [
+        "create_lab_reservation"
+      ],
+      "expected_any_tools": [
+        "get_today",
+        "list_open_labs"
+      ],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 1,
+      "expected_reservation_count": 1,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 4,
+        "helpfulness": 5,
+        "reason": "回复准确复述了实验室、日期和时段，并明确状态为待审核，覆盖关键信息且给出后续等待审核的说明，但未体现提交前先复述并向用户确认的交互环节。"
+      }
+    },
+    {
+      "id": "book-past-date",
+      "turns": [
+        "帮我预约昨天的云计算实验室，上午 9 点到 10 点"
+      ],
+      "answer": "今天已经是 **2026-10-27**，所以“昨天”是 2026-10-26，这个日期已经过去了，不能预约。\n\n另外，我已经查到了云计算实验室的信息：\n- 实验室ID：1\n- 名称：云计算实验室\n- 位置：实验楼A301\n- 容量：40 人\n- 开放时间：08:00–21:00\n\n如果你希望改成**今天或之后的某一天**上午 9:00–10:00，请告诉我具体日期，我会先复述预约信息，再帮你提交预约。",
+      "tool_calls": [
+        "get_today",
+        "list_open_labs"
+      ],
+      "errors": [],
+      "expected_tools": [],
+      "expected_any_tools": [],
+      "forbidden_tools": [
+        "create_lab_reservation"
+      ],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 4,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "明确拒绝了过去的日期，引用了今天日期与实验室信息，并给出改期到今日或之后的可行下一步；仅因未确证具体日期来源略有微小不确定。"
+      }
+    },
+    {
+      "id": "cancel-boundary",
+      "turns": [
+        "帮我取消我的预约"
+      ],
+      "answer": "我目前没有取消预约的功能，只能查询规则和创建预约。按规则，待审核或已通过的预约可由本人取消。\n\n建议你到系统的预约记录页自行操作取消，或联系实验室管理员处理。需要我先帮你查实验室信息或新建预约吗？",
+      "tool_calls": [
+        "search_lab_docs"
+      ],
+      "errors": [],
+      "expected_tools": [],
+      "expected_any_tools": [],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": false,
+      "reservation_count": 1,
+      "expected_reservation_count": 1,
+      "reservation_ok": true,
+      "passed": false,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 4,
+        "helpfulness": 5,
+        "reason": "明确说明无取消功能，引导用户到预约记录页或联系管理员，未谎称已取消，符合参考要点，仅未明确指出「我的预约」页面名称略欠完整。"
+      }
+    },
+    {
+      "id": "no-hallucination-lab",
+      "turns": [
+        "帮我预约明天上午 9 点到 10 点的火星实验室"
+      ],
+      "answer": "我先查一下日期和实验室信息。当前开放的实验室里没有“火星实验室”，只有以下 4 个：\n\n| ID | 名称 | 位置 | 开放时间 |\n|---|---|---|---|\n| 1 | 云计算实验室 | 实验楼A301 | 08:00–21:00 |\n| 2 | 化学实验室 | 实验楼B102 | 08:30–18:00 |\n| 3 | 物理实验室 | 实验楼C201 | 08:00–20:00 |\n| 4 | 计算机实验室 | 实验楼A101 | 08:00–21:00 |\n\n明天是 **2026-10-28**。请确认你要预约哪一个实验室；确认后，我按 **09:00–10:00** 为你创建预约。",
+      "tool_calls": [
+        "get_today",
+        "list_open_labs",
+        "list_open_labs"
+      ],
+      "errors": [],
+      "expected_tools": [],
+      "expected_any_tools": [],
+      "forbidden_tools": [
+        "create_lab_reservation"
+      ],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 0,
+      "expected_reservation_count": 0,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "正确识别火星实验室不存在，未编造，列出可选开放实验室并确认了日期与时段，引导用户选择，表达清晰可执行。"
+      }
+    }
+  ]
+}

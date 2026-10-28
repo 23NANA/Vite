@@ -63,37 +63,41 @@ def get_collcetion() -> Collection:
     _collection = col
     return col
 
-def search(query: str):
-    """根据关键字去检索向量库"""
+def retrieve(
+    query: str, n_results: int = 5, min_score: float = 0.0
+) -> list[dict]:
+    """检索并返回按相关度排序的结果，供 search 和离线评测共用。
+
+    score = 1 / (1 + distance)，取值 0-1，越接近 1 越相关。
+    """
     col = get_collcetion()
     if col.count() == 0:
-        return ""
-    limit = min(5, col.count())
+        return []
+    limit = min(n_results, col.count())
     res = col.query(query_texts=[query], n_results=limit)
     docs = (res.get("documents") or [[]])[0]
     metas = (res.get("metadatas") or [[]])[0]
     distances = (res.get("distances") or [[]])[0]
 
-    """
-    以下是检索出来的资料：
-    [预约规则.md]
-
-    # 实验室预约规则...
-
-    
-    [安全规范.md]
-
-    安全规范....
-    """
-    score_parts = []
-    for doc, metas, dist in zip(docs, metas, distances):
-        # 0-1 越接近1表示越相关
+    results = []
+    for doc, meta, dist in zip(docs, metas, distances):
         score = 1 / (1 + dist)
-        if score < 0.5:
+        if score < min_score:
             continue
-        name = metas.get("source") or ""
-        score_parts.append({"score": score, "content": f"[{name}]\n{doc}"})
-    print(f"检索出来的 score_parts：{score_parts}")
-    score_parts.sort(key=lambda x: x["score"], reverse=True)
-    final_parts = [item["content"] for item in score_parts[:2]]
-    return "\n\n".join(final_parts)
+        results.append(
+            {
+                "source": (meta or {}).get("source") or "",
+                "content": doc,
+                "score": score,
+            }
+        )
+    results.sort(key=lambda item: item["score"], reverse=True)
+    return results
+
+
+def search(query: str):
+    """根据关键字去检索向量库，返回拼好的 Top-2 正文注入 System Prompt。"""
+    results = retrieve(query, n_results=5, min_score=0.5)
+    return "\n\n".join(
+        f"[{item['source']}]\n{item['content']}" for item in results[:2]
+    )

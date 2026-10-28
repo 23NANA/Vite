@@ -1,0 +1,448 @@
+{
+  "dataset": "D:\\PythonProject\\Course\\backend\\evals\\rag_golden.jsonl",
+  "queries": 22,
+  "corpus_docs": 4,
+  "top_k": 5,
+  "metrics": {
+    "1": {
+      "hit": 1.0,
+      "recall": 1.0,
+      "mrr": 1.0
+    },
+    "2": {
+      "hit": 1.0,
+      "recall": 1.0,
+      "mrr": 1.0
+    },
+    "3": {
+      "hit": 1.0,
+      "recall": 1.0,
+      "mrr": 1.0
+    },
+    "5": {
+      "hit": 1.0,
+      "recall": 1.0,
+      "mrr": 1.0
+    }
+  },
+  "rows": [
+    {
+      "id": "booking-cancel-pending",
+      "query": "待审核的预约可以取消吗",
+      "expected_sources": [
+        "预约规则.md"
+      ],
+      "ranked_sources": [
+        "预约规则.md",
+        "设备使用.md",
+        "开放时间.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "预约规则.md": 0.8058,
+        "设备使用.md": 0.6565,
+        "开放时间.md": 0.6547,
+        "安全规范.md": 0.605
+      }
+    },
+    {
+      "id": "booking-cancel-rejected",
+      "query": "已拒绝的预约还能取消吗",
+      "expected_sources": [
+        "预约规则.md"
+      ],
+      "ranked_sources": [
+        "预约规则.md",
+        "设备使用.md",
+        "开放时间.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "预约规则.md": 0.7784,
+        "设备使用.md": 0.6505,
+        "开放时间.md": 0.6353,
+        "安全规范.md": 0.6005
+      }
+    },
+    {
+      "id": "booking-need-audit",
+      "query": "预约提交后就可以直接使用吗",
+      "expected_sources": [
+        "预约规则.md"
+      ],
+      "ranked_sources": [
+        "预约规则.md",
+        "设备使用.md",
+        "开放时间.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "预约规则.md": 0.7459,
+        "设备使用.md": 0.7036,
+        "开放时间.md": 0.6559,
+        "安全规范.md": 0.5957
+      }
+    },
+    {
+      "id": "booking-how-to-submit",
+      "query": "怎么提交实验室预约",
+      "expected_sources": [
+        "预约规则.md"
+      ],
+      "ranked_sources": [
+        "预约规则.md",
+        "设备使用.md",
+        "开放时间.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "预约规则.md": 0.8204,
+        "设备使用.md": 0.752,
+        "开放时间.md": 0.7291,
+        "安全规范.md": 0.6543
+      }
+    },
+    {
+      "id": "booking-admin-audit",
+      "query": "预约需要管理员审核吗",
+      "expected_sources": [
+        "预约规则.md"
+      ],
+      "ranked_sources": [
+        "预约规则.md",
+        "设备使用.md",
+        "开放时间.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "预约规则.md": 0.7585,
+        "设备使用.md": 0.6584,
+        "开放时间.md": 0.6503,
+        "安全规范.md": 0.5984
+      }
+    },
+    {
+      "id": "booking-rejected",
+      "query": "预约被拒绝了还能取消吗",
+      "expected_sources": [
+        "预约规则.md"
+      ],
+      "ranked_sources": [
+        "预约规则.md",
+        "设备使用.md",
+        "开放时间.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "预约规则.md": 0.7812,
+        "设备使用.md": 0.6495,
+        "开放时间.md": 0.6282,
+        "安全规范.md": 0.5964
+      }
+    },
+    {
+      "id": "booking-flow",
+      "query": "预约流程是怎样的",
+      "expected_sources": [
+        "预约规则.md"
+      ],
+      "ranked_sources": [
+        "预约规则.md",
+        "设备使用.md",
+        "开放时间.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "预约规则.md": 0.7412,
+        "设备使用.md": 0.696,
+        "开放时间.md": 0.6586,
+        "安全规范.md": 0.5966
+      }
+    },
+    {
+      "id": "safety-goggles",
+      "query": "进化学实验室需要戴护目镜吗",
+      "expected_sources": [
+        "安全规范.md"
+      ],
+      "ranked_sources": [
+        "安全规范.md",
+        "设备使用.md",
+        "开放时间.md",
+        "预约规则.md"
+      ],
+      "scores": {
+        "安全规范.md": 0.7528,
+        "设备使用.md": 0.7019,
+        "开放时间.md": 0.6641,
+        "预约规则.md": 0.6406
+      }
+    },
+    {
+      "id": "safety-snacks",
+      "query": "实验室里可以吃零食吗",
+      "expected_sources": [
+        "安全规范.md"
+      ],
+      "ranked_sources": [
+        "安全规范.md",
+        "开放时间.md",
+        "预约规则.md",
+        "设备使用.md"
+      ],
+      "scores": {
+        "安全规范.md": 0.7069,
+        "开放时间.md": 0.6593,
+        "预约规则.md": 0.6386,
+        "设备使用.md": 0.6329
+      }
+    },
+    {
+      "id": "safety-repair",
+      "query": "设备损坏了可以自己拆开修吗",
+      "expected_sources": [
+        "安全规范.md"
+      ],
+      "ranked_sources": [
+        "安全规范.md",
+        "设备使用.md",
+        "预约规则.md",
+        "开放时间.md"
+      ],
+      "scores": {
+        "安全规范.md": 0.6832,
+        "设备使用.md": 0.6616,
+        "预约规则.md": 0.6403,
+        "开放时间.md": 0.616
+      }
+    },
+    {
+      "id": "safety-leave",
+      "query": "离开实验室前要关掉什么",
+      "expected_sources": [
+        "安全规范.md"
+      ],
+      "ranked_sources": [
+        "安全规范.md",
+        "预约规则.md",
+        "设备使用.md",
+        "开放时间.md"
+      ],
+      "scores": {
+        "安全规范.md": 0.7407,
+        "预约规则.md": 0.6983,
+        "设备使用.md": 0.6809,
+        "开放时间.md": 0.6657
+      }
+    },
+    {
+      "id": "safety-rules",
+      "query": "实验室安全规范有哪些",
+      "expected_sources": [
+        "安全规范.md"
+      ],
+      "ranked_sources": [
+        "安全规范.md",
+        "设备使用.md",
+        "开放时间.md",
+        "预约规则.md"
+      ],
+      "scores": {
+        "安全规范.md": 0.7897,
+        "设备使用.md": 0.6826,
+        "开放时间.md": 0.6725,
+        "预约规则.md": 0.6721
+      }
+    },
+    {
+      "id": "safety-no-food",
+      "query": "化学实验室能带吃的进去吗",
+      "expected_sources": [
+        "安全规范.md"
+      ],
+      "ranked_sources": [
+        "安全规范.md",
+        "开放时间.md",
+        "设备使用.md",
+        "预约规则.md"
+      ],
+      "scores": {
+        "安全规范.md": 0.7469,
+        "开放时间.md": 0.7098,
+        "设备使用.md": 0.6546,
+        "预约规则.md": 0.6542
+      }
+    },
+    {
+      "id": "hours-computer-weekend",
+      "query": "计算机实验室周末几点开门",
+      "expected_sources": [
+        "开放时间.md"
+      ],
+      "ranked_sources": [
+        "开放时间.md",
+        "预约规则.md",
+        "设备使用.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "开放时间.md": 0.8147,
+        "预约规则.md": 0.6661,
+        "设备使用.md": 0.6563,
+        "安全规范.md": 0.6554
+      }
+    },
+    {
+      "id": "hours-chem-weekend",
+      "query": "化学实验室周末开放吗",
+      "expected_sources": [
+        "开放时间.md"
+      ],
+      "ranked_sources": [
+        "开放时间.md",
+        "安全规范.md",
+        "预约规则.md",
+        "设备使用.md"
+      ],
+      "scores": {
+        "开放时间.md": 0.8335,
+        "安全规范.md": 0.6841,
+        "预约规则.md": 0.6464,
+        "设备使用.md": 0.6421
+      }
+    },
+    {
+      "id": "hours-physics-close",
+      "query": "物理实验室几点关门",
+      "expected_sources": [
+        "开放时间.md"
+      ],
+      "ranked_sources": [
+        "开放时间.md",
+        "安全规范.md",
+        "预约规则.md",
+        "设备使用.md"
+      ],
+      "scores": {
+        "开放时间.md": 0.7559,
+        "安全规范.md": 0.7026,
+        "预约规则.md": 0.6783,
+        "设备使用.md": 0.6631
+      }
+    },
+    {
+      "id": "hours-general",
+      "query": "实验室的开放时间是什么",
+      "expected_sources": [
+        "开放时间.md"
+      ],
+      "ranked_sources": [
+        "开放时间.md",
+        "预约规则.md",
+        "设备使用.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "开放时间.md": 0.8094,
+        "预约规则.md": 0.686,
+        "设备使用.md": 0.6809,
+        "安全规范.md": 0.6647
+      }
+    },
+    {
+      "id": "hours-weekend",
+      "query": "周末可以去计算机实验室吗",
+      "expected_sources": [
+        "开放时间.md"
+      ],
+      "ranked_sources": [
+        "开放时间.md",
+        "预约规则.md",
+        "设备使用.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "开放时间.md": 0.7562,
+        "预约规则.md": 0.6632,
+        "设备使用.md": 0.6603,
+        "安全规范.md": 0.6326
+      }
+    },
+    {
+      "id": "equipment-lab-required",
+      "query": "预约设备需要同时选择实验室吗",
+      "expected_sources": [
+        "设备使用.md"
+      ],
+      "ranked_sources": [
+        "设备使用.md",
+        "预约规则.md",
+        "开放时间.md",
+        "安全规范.md"
+      ],
+      "scores": {
+        "设备使用.md": 0.8022,
+        "预约规则.md": 0.7704,
+        "开放时间.md": 0.714,
+        "安全规范.md": 0.656
+      }
+    },
+    {
+      "id": "equipment-microscope",
+      "query": "电子显微镜使用前要检查什么",
+      "expected_sources": [
+        "设备使用.md"
+      ],
+      "ranked_sources": [
+        "设备使用.md",
+        "安全规范.md",
+        "预约规则.md",
+        "开放时间.md"
+      ],
+      "scores": {
+        "设备使用.md": 0.7866,
+        "安全规范.md": 0.6715,
+        "预约规则.md": 0.6325,
+        "开放时间.md": 0.6321
+      }
+    },
+    {
+      "id": "equipment-occupy-lab",
+      "query": "约了设备之后实验室还会被占用吗",
+      "expected_sources": [
+        "设备使用.md"
+      ],
+      "ranked_sources": [
+        "设备使用.md",
+        "预约规则.md",
+        "安全规范.md",
+        "开放时间.md"
+      ],
+      "scores": {
+        "设备使用.md": 0.7571,
+        "预约规则.md": 0.7287,
+        "安全规范.md": 0.6961,
+        "开放时间.md": 0.6949
+      }
+    },
+    {
+      "id": "equipment-register",
+      "query": "设备使用完需要登记吗",
+      "expected_sources": [
+        "设备使用.md"
+      ],
+      "ranked_sources": [
+        "设备使用.md",
+        "预约规则.md",
+        "安全规范.md",
+        "开放时间.md"
+      ],
+      "scores": {
+        "设备使用.md": 0.7124,
+        "预约规则.md": 0.6893,
+        "安全规范.md": 0.6628,
+        "开放时间.md": 0.6431
+      }
+    }
+  ]
+}

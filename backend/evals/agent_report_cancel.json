@@ -1,0 +1,45 @@
+{
+  "dataset": "D:\\PythonProject\\Course\\backend\\evals\\agent_cases.json",
+  "eval_database": "mysql+pymysql://root:***@127.0.0.1:3306/lab_agent_eval",
+  "cases": 1,
+  "passed": 1,
+  "pass_rate": 1.0,
+  "tool_accuracy": 1.0,
+  "answer_pass_rate": 1.0,
+  "db_pass_rate": 1.0,
+  "judge_average": {
+    "relevance": 5.0,
+    "accuracy": 5.0,
+    "completeness": 5.0,
+    "helpfulness": 5.0
+  },
+  "results": [
+    {
+      "id": "cancel-boundary",
+      "turns": [
+        "帮我取消我的预约"
+      ],
+      "answer": "我这边暂时没有“取消预约”的工具权限，只能帮你创建预约。因此，取消操作需要你自己完成：\n\n**取消规则**（来自预约规则）：\n- 在你提交预约之后，状态为「待审核」的，以及已经「已通过」的预约，本人都可以取消\n- 状态为「已拒绝」的预约不能取消\n\n**操作方式**：登录系统，进入「我的预约」列表，找到对应的记录，点击取消即可。\n\n如果你要**新建**预约，请告诉我实验室或设备、日期和时段，我可以帮你提交。另外，如果你需要我先帮你查一下有哪些实验室可以预约，也可以直接说。",
+      "tool_calls": [
+        "search_lab_docs"
+      ],
+      "errors": [],
+      "expected_tools": [],
+      "expected_any_tools": [],
+      "forbidden_tools": [],
+      "tools_ok": true,
+      "answer_ok": true,
+      "reservation_count": 1,
+      "expected_reservation_count": 1,
+      "reservation_ok": true,
+      "passed": true,
+      "judge": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "helpfulness": 5,
+        "reason": "明确说明无取消预约工具、未谎称已取消，并给出取消规则和「我的预约」页面操作指引，清晰可执行。"
+      }
+    }
+  ]
+}

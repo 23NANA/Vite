@@ -1,0 +1,95 @@
+[
+  {
+    "id": "open-hours",
+    "turns": ["计算机实验室周末几点开门？"],
+    "expected_tools": ["search_lab_docs"],
+    "answer_contains_any": ["09:00", "9:00", "九点"],
+    "expected_reservation_count": 0,
+    "reference": "计算机实验室周末开放时间为 09:00-17:00。"
+  },
+  {
+    "id": "chem-weekend",
+    "turns": ["化学实验室周末开放吗？"],
+    "expected_tools": ["search_lab_docs"],
+    "answer_contains_any": ["不开放", "不上班", "休息"],
+    "expected_reservation_count": 0,
+    "reference": "化学实验室周末不开放。"
+  },
+  {
+    "id": "safety-goggles",
+    "turns": ["进化学实验室需要戴护目镜吗？"],
+    "expected_tools": ["search_lab_docs"],
+    "answer_contains_any": ["需要", "须戴", "必须"],
+    "expected_reservation_count": 0,
+    "reference": "进入化学实验室须穿实验服并佩戴护目镜。"
+  },
+  {
+    "id": "booking-rules",
+    "turns": ["待审核的预约可以取消吗？"],
+    "expected_tools": ["search_lab_docs"],
+    "answer_contains_any": ["可以", "待审核"],
+    "expected_reservation_count": 0,
+    "reference": "待审核、已通过的预约，本人可以取消；已拒绝的不能取消。"
+  },
+  {
+    "id": "equipment-usage",
+    "turns": ["电子显微镜使用前要检查什么？"],
+    "expected_tools": ["search_lab_docs"],
+    "answer_contains_any": ["镜头", "样品台"],
+    "expected_reservation_count": 0,
+    "reference": "使用前先检查镜头和样品台，结束后填写使用登记。"
+  },
+  {
+    "id": "list-open-labs",
+    "turns": ["现在有哪些实验室开放？"],
+    "expected_tools": ["list_open_labs"],
+    "answer_contains_any": ["云计算实验室", "化学实验室", "物理实验室", "计算机实验室"],
+    "expected_reservation_count": 0,
+    "reference": "列出当前开放中的实验室，不应编造不存在的实验室。"
+  },
+  {
+    "id": "list-equipment",
+    "turns": ["云计算实验室有哪些设备？"],
+    "expected_tools": ["list_lab_equipments"],
+    "expected_any_tools": ["list_open_labs"],
+    "answer_contains_any": ["GPU", "服务器"],
+    "expected_reservation_count": 0,
+    "reference": "云计算实验室有 GPU 服务器等设备。"
+  },
+  {
+    "id": "book-confirm",
+    "turns": ["帮我预约明天上午 9 点到 10 点的云计算实验室", "确认预约"],
+    "expected_tools": ["create_lab_reservation"],
+    "expected_any_tools": ["get_today", "list_open_labs"],
+    "answer_contains_any": ["提交", "审核", "预约成功", "待审核"],
+    "expected_reservation_count": 1,
+    "reference": "先复述实验室、日期和时段，用户确认后提交预约；提交后状态为待审核。"
+  },
+  {
+    "id": "book-past-date",
+    "turns": ["帮我预约昨天的云计算实验室，上午 9 点到 10 点"],
+    "expected_tools": [],
+    "forbidden_tools": ["create_lab_reservation"],
+    "answer_contains_any": ["不能", "无法", "过去", "昨天", "过期"],
+    "expected_reservation_count": 0,
+    "reference": "不能预约过去的日期，应提示用户选择今天或之后的日期。"
+  },
+  {
+    "id": "cancel-boundary",
+    "turns": ["帮我取消我的预约"],
+    "expected_tools": [],
+    "seed_reservation": true,
+    "answer_contains_any": ["我的预约", "预约记录", "记录页", "页面", "无法", "不能", "不支持"],
+    "expected_reservation_count": 1,
+    "reference": "当前对话没有取消预约的工具，应引导用户到「我的预约」页面操作，不能谎称已取消。"
+  },
+  {
+    "id": "no-hallucination-lab",
+    "turns": ["帮我预约明天上午 9 点到 10 点的火星实验室"],
+    "expected_tools": [],
+    "forbidden_tools": ["create_lab_reservation"],
+    "answer_contains_any": ["没有", "不存在", "未找到", "无法"],
+    "expected_reservation_count": 0,
+    "reference": "系统中没有火星实验室，应告知用户并引导从开放实验室列表中选择，不能编造。"
+  }
+]
